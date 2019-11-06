@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -14,11 +15,19 @@ var VERBOSE bool
 
 var VERSION versions.Version
 var outputFile string
+var generator versions.Generator
 
 func ProcessCommandLine() {
-	VERBOSE = true
+
 	parser := argparse.NewParser("srctrace", "generate source trace info")
+
+	v := parser.Flag("v", "verbose", &argparse.Options{Help: "Verbose", Default: true})
+
 	m := parser.Int("m", "major", &argparse.Options{Help: "Major version", Default: 0})
+	minor := parser.Int("n", "minor", &argparse.Options{Help: "Minor version", Default: 0})
+	build := parser.Int("b", "build", &argparse.Options{Help: "Build Number", Default: 999})
+
+	lang := parser.Selector("L", "language", []string{"C", "C++", "Ada", "python", "go"}, &argparse.Options{Help: "Language to output"})
 	out := parser.String("o", "output", &argparse.Options{Help: "Output file base name", Default: "versions"})
 
 	err := parser.Parse(os.Args)
@@ -28,8 +37,28 @@ func ProcessCommandLine() {
 		log.Print(parser.Usage(err))
 	}
 
+	VERBOSE = *v
 	VERSION.Major = *m
+	VERSION.Minor = *minor
+	VERSION.Build = *build
+
 	outputFile = *out
+
+	switch *lang {
+	case "C":
+		generator = cgen.CGen(1)
+	case "Ada":
+		generator = adagen.AdaGen(1)
+	case "go":
+		fmt.Println("go not yet supported")
+		os.Exit(1)
+	case "python":
+		fmt.Println("python not yet supported")
+		os.Exit(1)
+	default:
+		fmt.Printf("Language is not recognized\n")
+		os.Exit(1)
+	}
 	if VERBOSE {
 		VERSION.Show()
 	}
@@ -38,9 +67,5 @@ func ProcessCommandLine() {
 func main() {
 	log.Printf("srctrace\n")
 	ProcessCommandLine()
-
-	cg := cgen.CGen(1)
-	cg.Generate(VERSION, outputFile)
-	ag := adagen.AdaGen(1)
-	ag.Generate(VERSION, outputFile)
+	generator.Generate(VERSION, outputFile)
 }

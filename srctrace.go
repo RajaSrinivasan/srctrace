@@ -28,7 +28,7 @@ func ProcessCommandLine() {
 	build := parser.Int("b", "build", &argparse.Options{Help: "Build Number", Default: 999})
 
 	lang := parser.Selector("L", "language", []string{"C", "C++", "Ada", "python", "go"}, &argparse.Options{Help: "Language to output"})
-	out := parser.String("o", "output", &argparse.Options{Help: "Output file base name", Default: "versions"})
+	out := parser.String("o", "output", &argparse.Options{Help: "Output file base name", Default: "revisions"})
 
 	err := parser.Parse(os.Args)
 	if err != nil {

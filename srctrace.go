@@ -21,7 +21,7 @@ func ProcessCommandLine() {
 
 	parser := argparse.NewParser("srctrace", "generate source trace info")
 
-	v := parser.Flag("v", "verbose", &argparse.Options{Help: "Verbose", Default: true})
+	v := parser.Flag("v", "verbose", &argparse.Options{Help: "Verbose", Default: false})
 
 	m := parser.Int("m", "major", &argparse.Options{Help: "Major version", Default: 0})
 	minor := parser.Int("n", "minor", &argparse.Options{Help: "Minor version", Default: 0})
@@ -59,24 +59,19 @@ func ProcessCommandLine() {
 		fmt.Printf("Language is not recognized\n")
 		os.Exit(1)
 	}
-	if VERBOSE {
-		VERSION.Show()
-	}
+
 }
 
 func main() {
 	log.Printf("srctrace\n")
 	ProcessCommandLine()
 	rem := versions.GetRemoteURL(".")
-	fmt.Printf("%s\n", rem)
 	VERSION.Repo = rem
 	br := versions.GetBranchWithHead(".")
 	VERSION.Branch = br
 	cid, lcid := versions.GetCommitId(".", "qqq")
 	VERSION.ShortCommitId = cid
 	VERSION.LongCommitId = lcid
-	fmt.Printf("Commit Id %s\n", cid)
 	generator.Generate(VERSION, outputFile)
-	fmt.Printf("Branch Name %s\n", br)
 
 }

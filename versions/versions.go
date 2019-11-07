@@ -23,11 +23,7 @@ type Generator interface {
 	Generate(v Version, filename string)
 }
 
-var verbose = true
-
-func (v Version) Show() {
-	fmt.Printf("Major %d\n", v.Major)
-}
+var verbose = false
 
 func GetBranchWithHead(p string) string {
 

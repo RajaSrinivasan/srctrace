@@ -30,6 +30,7 @@ func (cg CGen) Generate(v versions.Version, filename string) {
 	fmt.Fprintf(hfile, "#define VERSION_MINOR (%d)\n", v.Minor)
 	fmt.Fprintf(hfile, "#define VERSION_BUILD (%d)\n", v.Build)
 	fmt.Fprintf(hfile, "#define REPO_URL \"%s\"\n", v.Repo)
+	fmt.Fprintf(hfile, "#define BRANCH_NAME \"%s\"\n", v.Branch)
 	fmt.Fprintf(hfile, "#define SHORT_COMMIT_ID \"%s\"\n", v.ShortCommitId)
 	fmt.Fprintf(hfile, "#define LONG_COMMIT_ID \"%s\"\n", v.LongCommitId)
 }

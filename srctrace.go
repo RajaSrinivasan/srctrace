@@ -7,6 +7,7 @@ import (
 
 	"./adagen"
 	"./cgen"
+	"./gogen"
 	"./versions"
 	"github.com/akamensky/argparse"
 )
@@ -50,8 +51,7 @@ func ProcessCommandLine() {
 	case "Ada":
 		generator = adagen.AdaGen(1)
 	case "go":
-		fmt.Println("go not yet supported")
-		os.Exit(1)
+		generator = gogen.GoGen(1)
 	case "python":
 		fmt.Println("python not yet supported")
 		os.Exit(1)

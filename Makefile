@@ -1,7 +1,7 @@
 SOURCES=$(wildcard *.go)
 EXEC=srctrace
 BINARIES=../bin
-all: dependencies $(EXEC)
+all: $(EXEC)
 
 $(EXEC):
 	go build -o $(BINARIES)/$(EXEC)

@@ -59,3 +59,13 @@ This projectlet generates a fragment of source code that can be compiled into th
             SHORT_COMMIT_ID : constant String := "cefa722" ;
             LONG_COMMIT_ID : constant String := "cefa72267cc4d3a07fbf5e672b0053116d582aa7" ;
         end revisions ;
+
+## Installing
+
+        git clone http://github.com/RajaSrinivasan/srctrace.git
+        cd srctrace
+        make dependencies
+        make all
+        cp ../bin/srctrace <desired location>
+
+

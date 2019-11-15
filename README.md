@@ -25,6 +25,25 @@ This projectlet generates a fragment of source code that can be compiled into th
         -o  --output    Output file base name. Default: revisions
 
 ## Examples
+### Go Application
+
+In the case of go, the output file name is used as the package name. 
+
+        ../../bin/srctrace -L go
+        2019/11/15 11:20:19 srctrace
+
+        cat revisions.go
+        package revisions
+        // Go package generator
+        // File: revisions.h
+        const buildTime = "Fri Nov 15 2019 11:20:19"
+        const versionMajor = 0
+        const versionMinor = 0
+        const versionBuild = 999
+        const repoURL = "git@gitlab.com:privatetutor/projectlets/go.git"
+        const branchName = "master"
+        const shortCommitId = "3e5cabc"
+        const longCommitId = "3e5cabcc45a90d03202a04251713d573fbf6a807"
 
 ### C Application
 
@@ -43,6 +62,8 @@ This projectlet generates a fragment of source code that can be compiled into th
         #define LONG_COMMIT_ID “cefa72267cc4d3a07fbf5e672b0053116d582aa7”
 
 ### Ada Application
+
+In the case of Ada, the output filename is used to generate an entire package spec.
 
         ../../bin/srctrace --language Ada -m 2 -n 3 -b 234
         2019/11/07 05:48:39 srctrace

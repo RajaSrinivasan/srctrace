@@ -47,20 +47,19 @@ $ cat revisions.h
 `
 
 ### Ada Application
-`
-../../bin/srctrace --language Ada -m 2 -n 3 -b 234
-2019/11/07 05:48:39 srctrace
-$ cat revisions.ads
-package revisions is
--- Ada spec generator
--- File: revisions.ads
-    BUILD_TIME : constant String := "Thu Nov 7 2019 05:48:39" ;
-    VERSION_MAJOR : constant := 2 ;
-    VERSION_MINOR : constant := 3 ;
-    VERSION_BUILD : constant := 234 ;
-    REPO_URL : constant String := "git@gitlab.com:privatetutor/projectlets/go.git" ;
-    BRANCH_NAME : constant String := "master" ;
-    SHORT_COMMIT_ID : constant String := "cefa722" ;
-    LONG_COMMIT_ID : constant String := "cefa72267cc4d3a07fbf5e672b0053116d582aa7" ;
-end revisions ;
-`
+
+        ../../bin/srctrace --language Ada -m 2 -n 3 -b 234
+        2019/11/07 05:48:39 srctrace
+        $ cat revisions.ads
+        package revisions is
+        -- Ada spec generator
+        -- File: revisions.ads
+            BUILD_TIME : constant String := "Thu Nov 7 2019 05:48:39" ;
+            VERSION_MAJOR : constant := 2 ;
+            VERSION_MINOR : constant := 3 ;
+            VERSION_BUILD : constant := 234 ;
+            REPO_URL : constant String := "git@gitlab.com:privatetutor/projectlets/go.git" ;
+            BRANCH_NAME : constant String := "master" ;
+            SHORT_COMMIT_ID : constant String := "cefa722" ;
+            LONG_COMMIT_ID : constant String := "cefa72267cc4d3a07fbf5e672b0053116d582aa7" ;
+        end revisions ;

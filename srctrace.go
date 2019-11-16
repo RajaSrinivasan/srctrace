@@ -24,6 +24,7 @@ func ProcessCommandLine() {
 	parser := argparse.NewParser("srctrace", "generate source trace info")
 
 	v := parser.Flag("v", "verbose", &argparse.Options{Help: "Verbose", Default: false})
+	ver := parser.Flag("r", "report-version", &argparse.Options{Help: "report version", Default: false})
 
 	m := parser.Int("m", "major", &argparse.Options{Help: "Major version", Default: 0})
 	minor := parser.Int("n", "minor", &argparse.Options{Help: "Minor version", Default: 0})
@@ -37,6 +38,11 @@ func ProcessCommandLine() {
 		// In case of error print error and print usage
 		// This can also be done by passing -h or --help flags
 		log.Print(parser.Usage(err))
+	}
+
+	if *ver {
+		versions.Report()
+		os.Exit(0)
 	}
 
 	VERBOSE = *v

@@ -1,0 +1,21 @@
+V "GNAT Lib v2019"
+P ZX
+
+RN
+
+U revisions%s		revisions.ads		e93e3bdc NE OO PK IL
+
+D revisions.ads		20191107104158 e93e3bdc revisions%s
+D system.ads		20190518041255 085b6ffb system%s
+G a e
+X 1 revisions.ads
+1K9*revisions 12l5 12e14
+4a5*BUILD_TIME{string}
+5N5*VERSION_MAJOR
+6N5*VERSION_MINOR
+7N5*VERSION_BUILD
+8a5*REPO_URL{string}
+9a5*BRANCH_NAME{string}
+10a5*SHORT_COMMIT_ID{string}
+11a5*LONG_COMMIT_ID{string}
+

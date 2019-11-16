@@ -104,11 +104,17 @@ func GetRemoteURL(p string) string {
 	remote := string(out)
 	sepexp := regexp.MustCompile("[^\\s]+")
 	remfields := sepexp.FindAllString(remote, -1)
-	//fmt.Printf("-------\nFields of remote %s\nAnd %s\n%s\n--------\n", remfields[0], remfields[1], remfields[2])
-	//fmt.Printf("-------\nFields of remote %s\nAnd %s\n%s\n--------\n", remfields[3], remfields[4], remfields[5])
 	remrepo := "?"
 	if remfields[5] == "(push)" {
 		remrepo = remfields[4]
 	}
 	return remrepo
+}
+
+func Report() {
+	fmt.Printf("Version : %d.%d-%d\n", versionMajor, versionMinor, versionBuild)
+	fmt.Printf("Built : %s\n", buildTime)
+	fmt.Printf("Repo URL : %s\n", repoURL)
+	fmt.Printf("Branch : %s\n", branchName)
+	fmt.Printf("Commit Id : Short : %s Long %s\n", shortCommitId, longCommitId)
 }

@@ -81,6 +81,22 @@ In the case of Ada, the output filename is used to generate an entire package sp
             LONG_COMMIT_ID : constant String := "cefa72267cc4d3a07fbf5e672b0053116d582aa7" ;
         end revisions ;
 
+### Ini Files
+
+        ../bin/srctrace --language ini
+        2019/11/15 21:31:19 srctrace
+
+        cat revisions
+        [versions]
+        buildTime = "Fri Nov 15 2019 21:31:20"
+        versionMajor = 0
+        versionMinor = 0
+        versionBuild = 999
+        repoURL = "git@gitlab.com:privatetutor/projectlets/go.git"
+        branchName = "master"
+        shortCommitId = "ec60c09"
+        longCommitId = "ec60c0924b215757ed2ba1edb2ff3cdd0aac84d3"
+
 ## Installing
 
         git clone http://github.com/RajaSrinivasan/srctrace.git

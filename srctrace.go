@@ -8,6 +8,7 @@ import (
 	"./adagen"
 	"./cgen"
 	"./gogen"
+	"./inigen"
 	"./versions"
 	"github.com/akamensky/argparse"
 )
@@ -28,7 +29,7 @@ func ProcessCommandLine() {
 	minor := parser.Int("n", "minor", &argparse.Options{Help: "Minor version", Default: 0})
 	build := parser.Int("b", "build", &argparse.Options{Help: "Build Number", Default: 999})
 
-	lang := parser.Selector("L", "language", []string{"C", "C++", "Ada", "python", "go"}, &argparse.Options{Help: "Language to output"})
+	lang := parser.Selector("L", "language", []string{"go", "C", "Ada", "ini"}, &argparse.Options{Help: "Language to output"})
 	out := parser.String("o", "output", &argparse.Options{Help: "Output file base name", Default: "revisions"})
 
 	err := parser.Parse(os.Args)
@@ -52,9 +53,8 @@ func ProcessCommandLine() {
 		generator = adagen.AdaGen(1)
 	case "go":
 		generator = gogen.GoGen(1)
-	case "python":
-		fmt.Println("python not yet supported")
-		os.Exit(1)
+	case "ini":
+		generator = inigen.IniGen(1)
 	default:
 		fmt.Printf("Language is not recognized\n")
 		os.Exit(1)

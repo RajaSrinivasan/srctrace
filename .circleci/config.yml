@@ -8,11 +8,11 @@ jobs:
       # specify the version
       - image: circleci/golang:1.13
 
-    ####   /go/src/bitbucket.org/circleci/go-tool
-    working_directory: /go/src/github.com/circleci/srctrace
+
+    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     steps:
       - checkout
+
       # specify any bash command here prefixed with `run: `
-      - run: go build
-      - store_artifacts:
-          path: rollpwd.zip
+      - run: go get -v -t -d ./...
+      - run: go test -v ./...

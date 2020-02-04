@@ -5,11 +5,11 @@ import (
 	"log"
 	"os"
 
-	"./adagen"
-	"./cgen"
-	"./gogen"
-	"./inigen"
-	"./versions"
+	"github.com/RajaSrinivasan/srctrace/adagen"
+	"github.com/RajaSrinivasan/srctrace/cgen"
+	"github.com/RajaSrinivasan/srctrace/gogen"
+	"github.com/RajaSrinivasan/srctrace/inigen"
+	"github.com/RajaSrinivasan/srctrace/versions"
 	"github.com/akamensky/argparse"
 )
 

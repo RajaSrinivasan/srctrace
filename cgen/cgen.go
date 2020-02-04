@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"../versions"
+	"github.com/RajaSrinivasan/srctrace/versions"
 )
 
 type CGen int

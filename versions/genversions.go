@@ -1,11 +1,11 @@
 package versions
 // Go package generator
 // File: versions.h
-const buildTime = "Sat Nov 16 2019 08:18:51"
+const buildTime = "Fri Feb 14 2020 14:34:19"
 const versionMajor = 0
-const versionMinor = 0
-const versionBuild = 999
-const repoURL = "git@gitlab.com:privatetutor/projectlets/go.git"
+const versionMinor = 1
+const versionBuild = 1
+const repoURL = "https://github.com/RajaSrinivasan/srctrace.git"
 const branchName = "master"
-const shortCommitId = "18a0e63"
-const longCommitId = "18a0e63523fdcd6b47d4d654bd8a29108e908c89"
+const shortCommitId = "c62c744"
+const longCommitId = "c62c744419326092eccb25d4140bc40db6a8b670"

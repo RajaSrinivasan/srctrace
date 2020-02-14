@@ -27,6 +27,11 @@ var verbose = false
 
 func GetBranchWithHead(p string) string {
 
+	branch, found := os.LookupEnv("BRANCH_NAME")
+	if found {
+		return branch
+	}
+
 	wd, _ := os.Getwd()
 	defer os.Chdir(wd)
 	temppath := path.Join(wd, p)
@@ -46,7 +51,10 @@ func GetBranchWithHead(p string) string {
 	}
 	outstr := strings.TrimSpace(string(out))
 	sp := strings.Split(outstr, "/")
-	return sp[1]
+	if len(sp) > 0 {
+		return sp[1]
+	}
+	return string(out)
 }
 
 // Function GetCommitId

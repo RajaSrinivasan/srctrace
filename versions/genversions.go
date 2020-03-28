@@ -1,4 +1,5 @@
-package revisions
+package versions
+
 // Go package generator
 // File: revisions.h
 const buildTime = "Sat Mar 28 2020 02:41:17"

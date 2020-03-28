@@ -32,5 +32,6 @@ func (a AdaGen) Generate(v versions.Version, filename string) {
 	fmt.Fprintf(specfile, "    BRANCH_NAME : constant String := \"%s\" ;\n", v.Branch)
 	fmt.Fprintf(specfile, "    SHORT_COMMIT_ID : constant String := \"%s\" ;\n", v.ShortCommitId)
 	fmt.Fprintf(specfile, "    LONG_COMMIT_ID : constant String := \"%s\" ;\n", v.LongCommitId)
+	fmt.Fprintf(specfile, "    ASSIGNED_TAGS : constant String := \"%s\" ;\n", v.Tags)
 	fmt.Fprintf(specfile, "end %s ;\n", filename)
 }

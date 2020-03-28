@@ -34,4 +34,5 @@ func (gg GoGen) Generate(v versions.Version, filename string) {
 	fmt.Fprintf(gofile, "const branchName = \"%s\"\n", v.Branch)
 	fmt.Fprintf(gofile, "const shortCommitId = \"%s\"\n", v.ShortCommitId)
 	fmt.Fprintf(gofile, "const longCommitId = \"%s\"\n", v.LongCommitId)
+	fmt.Fprintf(gofile, "const assignedTags = \"%s\"\n", v.Tags)
 }

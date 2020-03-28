@@ -2,6 +2,7 @@ package versions
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"os/exec"
 	"path"
@@ -17,6 +18,7 @@ type Version struct {
 	Branch        string
 	ShortCommitId string
 	LongCommitId  string
+	Tags          string
 }
 
 type Generator interface {
@@ -119,10 +121,26 @@ func GetRemoteURL(p string) string {
 	return remrepo
 }
 
+func GetTags() string {
+
+	out, err := exec.Command("git", "tag", "-l", "--contains", "HEAD").Output()
+	if err != nil {
+		if verbose {
+			fmt.Printf("Error %v getting commit id\n", err)
+		}
+		return ""
+	}
+	log.Printf("Tags %v", strings.Split(string(out), "\n"))
+	retval := strings.ReplaceAll(string(out), "\n", ",")
+
+	return retval
+}
+
 func Report() {
 	fmt.Printf("Version : %d.%d-%d\n", versionMajor, versionMinor, versionBuild)
 	fmt.Printf("Built : %s\n", buildTime)
 	fmt.Printf("Repo URL : %s\n", repoURL)
 	fmt.Printf("Branch : %s\n", branchName)
 	fmt.Printf("Commit Id : Short : %s Long %s\n", shortCommitId, longCommitId)
+
 }

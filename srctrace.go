@@ -78,6 +78,8 @@ func main() {
 	cid, lcid := versions.GetCommitId(".", "qqq")
 	VERSION.ShortCommitId = cid
 	VERSION.LongCommitId = lcid
+	VERSION.Tags = versions.GetTags()
+
 	generator.Generate(VERSION, outputFile)
 
 }

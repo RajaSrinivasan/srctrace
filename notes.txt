@@ -1,0 +1,11 @@
+$ git tag -l --contains HEAD
+v0.1a
+v0.1aa
+$ git show-ref --tags --abbrev=7
+885f68f refs/tags/v0.1a
+21c7afe refs/tags/v0.1aa
+$ git show-ref --tags --abbrev=7 --dereference
+885f68f refs/tags/v0.1a
+94d63ab refs/tags/v0.1a^{}
+21c7afe refs/tags/v0.1aa
+94d63ab refs/tags/v0.1aa^{}

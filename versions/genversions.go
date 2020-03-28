@@ -1,13 +1,12 @@
 package versions
-
 // Go package generator
-// File: revisions.h
-const buildTime = "Sat Mar 28 2020 02:41:17"
+// File: versions.h
+const buildTime = "Sat Mar 28 2020 05:54:41"
 const versionMajor = 0
-const versionMinor = 0
-const versionBuild = 999
+const versionMinor = 2
+const versionBuild = 0
 const repoURL = "https://github.com/RajaSrinivasan/srctrace.git"
 const branchName = "master"
-const shortCommitId = "8d46619"
-const longCommitId = "8d46619ff229108ca1005782c7dc893efeb56a5b"
-const assignedTags = ""
+const shortCommitId = "df89502"
+const longCommitId = "df89502c38bb8d41ee6b84e75bb67f6066aff947"
+const assignedTags = "v0.2,"

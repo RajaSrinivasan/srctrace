@@ -9,3 +9,7 @@ $ git show-ref --tags --abbrev=7 --dereference
 94d63ab refs/tags/v0.1a^{}
 21c7afe refs/tags/v0.1aa
 94d63ab refs/tags/v0.1aa^{}
+
+$ git tag -l --points-at HEAD
+v0.2start
+

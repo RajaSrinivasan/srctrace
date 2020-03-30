@@ -142,5 +142,6 @@ func Report() {
 	fmt.Printf("Repo URL : %s\n", repoURL)
 	fmt.Printf("Branch : %s\n", branchName)
 	fmt.Printf("Commit Id : Short : %s Long %s\n", shortCommitId, longCommitId)
+	fmt.Printf("Assigned Tags : %s\n", assignedTags)
 
 }

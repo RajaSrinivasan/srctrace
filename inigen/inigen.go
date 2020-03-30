@@ -31,5 +31,5 @@ func (ig IniGen) Generate(v versions.Version, filename string) {
 	fmt.Fprintf(inifile, "branchName = \"%s\"\n", v.Branch)
 	fmt.Fprintf(inifile, "shortCommitId = \"%s\"\n", v.ShortCommitId)
 	fmt.Fprintf(inifile, "longCommitId = \"%s\"\n", v.LongCommitId)
-	fmt.Fprintf(inifile, "assogmedTags = \"%s\"\n", v.Tags)
+	fmt.Fprintf(inifile, "assignedTags = \"%s\"\n", v.Tags)
 }

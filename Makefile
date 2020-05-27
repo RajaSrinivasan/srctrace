@@ -6,6 +6,9 @@ all:
 	GOOS=linux GOARCH=amd64 GOARM=6 go build -o $(BINARIES)/linux64/$(EXEC) $(SOURCES)
 	GOOS=windows GOARCH=amd64 GOARM=6 go build -o $(BINARIES)/win64/$(EXEC).exe $(SOURCES)
 
+setup:
+	-$(MKDIR) $(BINARIES)
+	
 clean:
 	-$(RM) $(BINARIES)/$(EXEC)
 	-$(RM) $(BINARIES)/linux64/$(EXEC)

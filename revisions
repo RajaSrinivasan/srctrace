@@ -1,9 +1,0 @@
-[versions]
-buildTime = "Fri Nov 15 2019 21:31:20"
-versionMajor = 0
-versionMinor = 0
-versionBuild = 999
-repoURL = "git@gitlab.com:privatetutor/projectlets/go.git"
-branchName = "master"
-shortCommitId = "ec60c09"
-longCommitId = "ec60c0924b215757ed2ba1edb2ff3cdd0aac84d3"

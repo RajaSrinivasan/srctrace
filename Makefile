@@ -1,9 +1,7 @@
 SOURCES=$(wildcard *.go)
 EXEC=srctrace
 BINARIES=./bin
-all: $(EXEC)
-
-$(EXEC):
+all: 
 	go build -o $(BINARIES)/$(EXEC)
 	GOOS=linux GOARCH=amd64 GOARM=6 go build -o $(BINARIES)/linux64/$(EXEC) $(SOURCES)
 	GOOS=windows GOARCH=amd64 GOARM=6 go build -o $(BINARIES)/win64/$(EXEC).exe $(SOURCES)

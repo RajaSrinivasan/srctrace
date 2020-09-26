@@ -41,7 +41,24 @@ func GetBranchWithHead(p string) string {
 		fmt.Printf("Changing dir to %s\n", temppath)
 	}
 	os.Chdir(temppath)
-	out, err := exec.Command("git", "rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}").Output()
+
+	out, err := exec.Command("git", "branch").Output()
+	if err != nil {
+		fmt.Printf("Failed to execute git branch")
+	} else {
+		fmt.Printf("git branch returned %s", string(out))
+		lines := strings.Split(string(out), "\n")
+		for i, line := range lines {
+			fmt.Printf("%d : %s\n", i, line)
+			fields := strings.Split(line, " ")
+			if fields[0] == "*" {
+				fmt.Printf("Current branch is %s\n", fields[1])
+				return fields[1]
+			}
+		}
+	}
+
+	out, err = exec.Command("git", "rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}").Output()
 	if err != nil {
 		if verbose {
 			fmt.Printf("Unable to determine branch for %s\n", p)

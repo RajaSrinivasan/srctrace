@@ -29,9 +29,32 @@ jobs:
       run: echo ${{ github.run_number }}
     - name: Output Run Attempt
       run: echo ${{ github.run_attempt }}
-      
-      
+           
     - uses: actions/upload-artifact@v3
       with:
         name: srctrace
         path: ./srctrace
+        
+  winbuild:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.19
+
+    - name: Build
+      run: go build
+    - name: Output Run ID
+      run: echo ${{ github.run_id }}
+    - name: Output Run Number
+      run: echo ${{ github.run_number }}
+    - name: Output Run Attempt
+      run: echo ${{ github.run_attempt }}
+           
+    - uses: actions/upload-artifact@v3
+      with:
+        name: srctrace
+        path: ./srctrace.exe

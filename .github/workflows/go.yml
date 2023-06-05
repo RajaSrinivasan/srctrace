@@ -30,4 +30,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: srctrace
-        path: srctrace
+        path: srctrace/srctrace
